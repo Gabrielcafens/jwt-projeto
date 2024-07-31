@@ -14,7 +14,7 @@ const userController = {
   create(req, res) {
     const newUser = {
       username: req.body.username,
-      password: 'safepassword',
+      password: 'senhateste',
       name: req.body.name,
       email: req.body.email,
     };
@@ -61,7 +61,7 @@ const controllerBy = {
  *                      default: peas
  *                   password:
  *                      type: string
- *                      default: safepassword
+ *                      default: senhateste
  *                   name:
  *                      type: string
  *                      default: Paulo Silveira

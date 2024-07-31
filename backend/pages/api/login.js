@@ -44,10 +44,10 @@ const controllerBy = {
  *                properties: 
  *                   username:
  *                      type: string
- *                      default: omariosouto
+ *                      default: gabrielcafe
  *                   password:
  *                      type: string
- *                      default: safepassword
+ *                      default: senhateste
  *     responses:
  *       200:
  *         description: everything succeed and you are able to login
