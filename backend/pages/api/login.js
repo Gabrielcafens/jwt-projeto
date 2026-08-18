@@ -6,14 +6,14 @@ const controllers = {
     const { username, password } = req.body;
 
     db.users.findOne({ username, password }, async function (err, user) {
-      if (err) res.status(500).json({ error: { status: 500, message: 'Internal Server Error' } });
-      if (!user) res.status(401).json({ error: { status: 401, message: 'Username or password are invalid' } });
+      if (err) return res.status(500).json({ error: { status: 500, message: 'Internal Server Error' } });
+      if (!user) return res.status(401).json({ error: { status: 401, message: 'Username or password are invalid' } });
 
       const access_token = await authService.generateAccessToken(user._id);
       const refresh_token = await authService.generateRefreshToken(user._id);
 
       db.users.update({ _id: user._id }, { $set: { refresh_token: refresh_token } }, function (err) {
-        if (err) res.status(500).json({ error: { status: 500, message: 'Internal Server Error' } });
+        if (err) return res.status(500).json({ error: { status: 500, message: 'Internal Server Error' } });
 
         res.status(200).json({
           data: {
